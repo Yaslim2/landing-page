@@ -123,7 +123,7 @@ p {
     position: relative;
 }
 
-.menu h1 {
+.menu h1{
     font-size: 2.3rem;
     color: var(--primary-color);
 }
@@ -362,7 +362,7 @@ table caption {
     border: none;
     background: var(--white-color);
     padding: 1.5rem 2rem;
-    font-size: 3rem;
+    font-size: 2rem;
     width: 100%;
     outline: none;
 }
@@ -415,6 +415,28 @@ table caption {
     padding: 4rem;
 }
 
+/* Auxiliares menu mobile */
+
+.close-menu {
+    display: none;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--white-color);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--primary-color);
+    transform: rotate(-90deg);
+    border: 0.1rem solid var(--primary-color);
+}
+
 @media (max-width: 951px){
     .intro-content {
         grid-template-columns: 1fr;
@@ -431,7 +453,103 @@ table caption {
 }
 
 @media (max-width: 800px) {
+    .menu {
+        bottom: 0;
+        text-align: center;
+        background-image: url(/assets/imagens/Confetti-Doodles.svg);
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .menu ul li a{
+        color: var(--white-color);
+    }
+
+    .menu h1{
+        color: var(--white-color);
+    }
+
+    .menu-content, .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .menu-content {
+        height: 100vh;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu-spacing {
+       display: none;
+    }
+
+    .menu h1{
+        margin-bottom: 1.5rem;
+    }
+
+    .main-content {
+        padding: 5rem var(--gap);
+    }
+
+    .close-menu-label::after {
+        content: '☰';
+        position: fixed;
+        z-index: 2;
+        top: 2rem;
+        right: 2rem;
+        background: var(--primary-color);
+        color: var(--white-color);
+        font-size: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0.2rem;
+        cursor: pointer;
+    }
+
+    .close-menu:checked~.menu {
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label::after {
+        content: '×';
+    }
+
+    .grid h3 {
+        font-size: 3.0rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+      }
     
+      h2 {
+        font-size: 3.6rem;
+      }
+    
+      h3 {
+        font-size: 3.4rem;
+      }
+    
+      h4 {
+        font-size: 3.2rem;
+      }
+    
+      h5 {
+        font-size: 3rem;
+      }
+    
+      h6 {
+        font-size: 2.8rem;
+      }
+
+      p {
+          font-size: 1.8rem;
+      }
 }
 
 @media (max-width: 950px) and (min-width: 700px){
