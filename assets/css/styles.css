@@ -11,6 +11,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -81,7 +82,7 @@ p {
 .main-content {
     max-width: 120rem;
     margin: 0 auto;
-    padding: var(--gap);
+    padding: 10rem var(--gap);
 }
 
 .section {
@@ -154,18 +155,21 @@ p {
 
 .intro {
     overflow: hidden;
+    /* padding-top: 5rem; */
 }
 
 .intro-content {
     position: relative;
-    top: 2.5rem;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    width: 100vw;
     gap: var(--gap);
     min-height: 100vh;
+}
+
+.intro-text-content, .intro-img {
+    display: flex;
+    flex-flow: column wrap;
     justify-content: center;
-    align-items: center;
 }
 
 .intro-text-content h2 {
@@ -184,6 +188,10 @@ p {
 
 /* Seção Top 3 */
 
+/* #top3 {
+    padding-top: 5.5rem;
+} */
+
 .top3-content {
     position: relative;
     top: 2.5rem;
@@ -198,7 +206,7 @@ p {
 }
 
 .top3-content h2{
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 /* Seção Grid */
@@ -211,10 +219,12 @@ p {
 }
 
 .grid-title{
+    text-align: center;
     margin-bottom: 1rem;
 }
 
 .grid-subtitle {
+    text-align: center;
     padding-bottom: 5rem;
 }
 
@@ -243,9 +253,9 @@ p {
     transform: rotate(5deg);
 }
 
-.grid-one {
-    padding-top: 3rem;
-}
+/* .grid-one {
+    padding-top: 5rem;
+} */
 
 /* Seção Gallery */
 
@@ -256,25 +266,30 @@ p {
     overflow: hidden;
 }
 
-.gallery-img img{
+.gallery-img img {
     transition: all 300ms ease-in-out;
 }
 
-.gallery-img img:hover{ 
+.gallery-img img:hover { 
     transform: translate(-3%, 3%) scale(1.2) rotate(5deg);
 }
 
-#gallery {
-    padding-top: 5rem;
-}
+/* #gallery {
+    padding-top: 5.5rem;
+} */
+
+/* Seção Grid 2 */
+
+/* #grid-two {
+    padding-top: 5.5rem;
+} */
 
 /* Seção Pricing */
 
-#pricing {
-    position: relative;
-    top: 5.5rem;
+/* #pricing {
+    padding-top: 5.5rem;
 }
-
+ */
 #pricing h2 {
     margin-bottom: 5rem;
 }
@@ -283,6 +298,7 @@ table {
     min-width: 360px;
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 3rem;
 }
 
 table td, table th {
@@ -305,12 +321,154 @@ table thead th{
 
 table caption {
     font-style: italic;
-    font-size: 1.6rem;
-    text-align: left;
+    font-size: 2rem;
+    text-align: center;
     margin-bottom: 1rem;
 }
 
 .responsive-table {
     overflow: hidden;
     overflow-x: auto;
+}
+
+/* Seção Contato */
+
+.contact-content {
+    top: 0;
+    /* padding-top: 10rem; */
+}
+
+.contact-form {
+    grid-column: span 2;
+}
+
+.contact-form .form-grid {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.form-grid legend {
+    font-style: italic;
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+}
+
+.form-group {
+    flex: 1 1 320px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.form-group input, .form-group textarea{ 
+    border: none;
+    background: var(--white-color);
+    padding: 1.5rem 2rem;
+    font-size: 3rem;
+    width: 100%;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus{ 
+    box-shadow: 0px 0px 10px 2px var(--secondary-color);
+}
+
+.full-width {
+    width: 100%;
+    flex: 1 1 100%;
+}
+
+.form-group button {
+    border: 0.5rem solid var(--white-color);
+    background: none;
+    color: var(--white-color);
+    padding: 1.5rem 2rem;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.form-group button:hover {
+    background: var(--white-color);
+    color: var(--primary-color);
+}
+
+.form-group ::placeholder {
+    color: var(--lightgray-color);
+}
+
+/* Rodapé */
+
+.footer {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.footer a{
+    color: var(--primary-color);
+}
+
+.color {
+    color: --var(--secondary-color);
+}
+
+.footer p{
+    margin: 0;
+    padding: 4rem;
+}
+
+@media (max-width: 951px){
+    .intro-content {
+        grid-template-columns: 1fr;
+        grid-column: span 2;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 700px){
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .down {
+        grid-column: span 3;
+    }
+} 
+
+
+@media (max-width: 700px) {
+    .grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .down {
+        grid-column: span 1;
+    }
+
+    .gallery-img {
+        width: 100%;
+        max-width: 36rem,;
+        max-height: 36rem;
+    }
+
+    .gallery-img img{
+        width: 100%;
+    }
+
+    .grid-one-content {
+        display: block;
+    }
 }
